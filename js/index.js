@@ -12,7 +12,7 @@ function addTransaction() {
   // Obtener los valores de los campos del formulario
   const type = document.getElementById("transactionType").value;
   const description = document.getElementById("transactionDescription").value;
-  const amount = parseFloat(document.getElementById("transactionAmount").value);
+  let amount = parseFloat(document.getElementById("transactionAmount").value);
 
   // Valida que los campos no estén vacíos y que el monto sea un número positivo
   if (!type || !description || isNaN(amount) || amount <= 0) {
