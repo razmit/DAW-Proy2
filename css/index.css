@@ -16,6 +16,55 @@ html, body {
     text-align: center;
 }
 
+.top-container-center {
+    max-width: 25%;  
+    margin: 0 auto;  
+    text-align: center;  
+}
+
+.rect {
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.black-rect {
+    background-color: black;
+    color: white;
+}
+
+.white-rect {
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+/* Las labels de porcentaje de gastos */
+.d-flex {
+    justify-content: space-between;
+}
+
+.d-flex span {
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 10px;
+}
+
+#expense-percentage {
+    background-color: #000;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Para la parte de abajo */
 .bottom-section {
     flex: 1;
     display: flex;
@@ -30,4 +79,29 @@ html, body {
 
 .vertical-divider {
     border-left: 2px solid #ccc;
+}
+
+ /* Que solo sea el 50% del ancho del contenedor izquierdo */
+.form-container {
+    max-width: 50%;
+    margin: 0 auto; 
+}
+
+/* Para el lado derecho */
+.entry {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.amount {
+    font-weight: bold;
+}
+
+/* Add some styling for the toggle buttons */
+.btn-group-toggle .btn {
+    width: 50%;
 }
