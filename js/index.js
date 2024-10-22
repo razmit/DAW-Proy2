@@ -137,10 +137,10 @@ document.addEventListener("DOMContentLoaded", function () {
 // Cambia las labels de ingresos y egresos
 document.getElementById(
   "total-income"
-).textContent = `Total Income: $${totalIncome.toFixed(2)}`;
+).textContent = `Total ingresos: $${totalIncome.toFixed(2)}`;
 document.getElementById(
   "total-egress"
-).textContent = `Total Egress: $${totalEgress.toFixed(2)}`;
+).textContent = `Total egresos: $${totalEgress.toFixed(2)}`;
 
 // Calcular el balance y actualizar
 let balance = totalIncome - totalEgress;
