@@ -19,7 +19,10 @@ function addTransaction() {
     alert("Por favor ingresa valores válidos en los campos.");
     return;
   }
-
+  
+  // Redondea a dos decimales
+    amount = Math.round(amount * 100) / 100; // 15.635 => 15.64
+    
   // Crea un nuevo objeto de transacción
   const transaction = {
     type: type,
@@ -34,11 +37,11 @@ function addTransaction() {
     egressTransactions.push(transaction);
   }
 
-  // Update the transactions display and totals
+  // Actualiza la lista de transacciones y los totales
   updateTransactionsList();
   updateTotals();
 
-  // Clear the form fields
+  // Limpia el form
   document.getElementById("transactionType").value = "";
   document.getElementById("transactionDescription").value = "";
   document.getElementById("transactionAmount").value = "";
@@ -72,21 +75,29 @@ function updateTransactionsList() {
 
 // Actualiza los totales de ingresos, egresos y %balance
 function updateTotals() {
+    
     // Calcula total de income y egress
     const totalIncome = incomeTransactions.reduce((sum, transaction) => sum + transaction.amount, 0);
     const totalEgress = egressTransactions.reduce((sum, transaction) => sum + transaction.amount, 0);
 
     // Actualiza las labels
-    document.getElementById('total-income').textContent = `Total Income: $${totalIncome.toFixed(2)}`;
-    document.getElementById('total-egress').textContent = `Total Egress: $${totalEgress.toFixed(2)}`;
+    document.getElementById('total-income').textContent = `Ingresos totales: $${totalIncome.toFixed(2)}`;
+    document.getElementById('total-egress').textContent = `Egresos totales: $${totalEgress.toFixed(2)}`;
 
     // calcula el balance
     const balance = totalIncome - totalEgress;
-    document.getElementById('balance-label').textContent = `Balance: $${balance.toFixed(2)}`;
+    const balanceLabel = document.getElementById('balance-label');
+    balanceLabel.textContent = `Balance: $${balance.toFixed(2)}`;
+    
+    if (balance >= 0) {
+        balanceLabel.style.color = 'green';  // Balance positivo
+    } else {
+        balanceLabel.style.color = 'red';    // Balance negativo
+    }
 
     // Verifica que el total de ingresos sea mayor a 0 para calcular el porcentaje de egresos
     const percentageEgress = totalIncome > 0 ? (totalEgress / totalIncome) * 100 : 0;
-    document.getElementById('expense-percentage').textContent = `${percentageEgress.toFixed(2)}%`;
+    document.getElementById('expense-percentage').textContent = `${percentageEgress.toFixed(0)}%`;
 }
 
 // Event listener for processing the transaction
